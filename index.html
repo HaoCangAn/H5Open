@@ -1,11 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8">
+  <title>HTML5 Plus API 示例</title>
+  <script src="https://cdn.jsdelivr.net/npm/uni-app/dist/vue.runtime.min.js"></script>
 </head>
+
 <body>
-    
+  <h1>HTML5 Plus API 示例 - 获取设备信息</h1>
+  <button onclick="getDeviceInfo()">获取设备信息</button>
+  <script>
+    function getDeviceInfo() {
+      plus.device.getInfo({
+        success: function (e) {
+          var info = '设备型号：' + e.model + '<br>' +
+            '设备品牌：' + e.manufacturer + '<br>' +
+            '操作系统：' + e.os + '<br>' +
+            '设备 UUID：' + e.uuid;
+          document.getElementById('deviceInfo').innerHTML = info;
+        },
+        fail: function (e) {
+          document.getElementById('deviceInfo').innerHTML = '获取设备信息失败：' + e.message;
+        }
+      });
+    }
+  </script>
+  <div id="deviceInfo"></div>
 </body>
+
 </html>
