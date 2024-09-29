@@ -12,7 +12,9 @@
   <button onclick="getDeviceInfo()">获取设备信息</button>
   <script>
     function getDeviceInfo() {
+        alert('cess',plus.device.imei)
       plus.device.getInfo({
+       
         success: function (e) {
           var info = '设备型号：' + e.model + '<br>' +
             '设备品牌：' + e.manufacturer + '<br>' +
