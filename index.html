@@ -10,7 +10,19 @@
 <body>
   <h1>HTML5 Plus API 示例 - 获取设备信息</h1>
   <button onclick="getDeviceInfo()">获取设备信息</button>
+  <button onclick="rollDice()">摇色子</button>
+  <p id="result"></p>
+  <p id="result2"></p>
+  <p id="result3"></p>
   <script>
+    function rollDice() {
+      var randomNumber = Math.floor(Math.random() * 6) + 1;
+      var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+      var randomNumber3 =randomNumber+randomNumber2
+      document.getElementById('result').innerHTML = `摇出的第一个数字是：${randomNumber}`;
+      document.getElementById('result2').innerHTML = `摇出的第二数字是：${randomNumber2}`;
+      document.getElementById('result3').innerHTML = `摇出的第二数字是：${randomNumber3}`;
+    }
     function getDeviceInfo() {
         alert('cess',plus.device.imei)
       plus.device.getInfo({
